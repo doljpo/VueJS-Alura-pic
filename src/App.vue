@@ -2,7 +2,7 @@
   <div id="app">
     <h1>{{ titulo }}</h1>
     <ul>
-      <li v-for="foto in fotos" :key="foto">
+      <li v-for="foto in fotos">
         <img :src="foto.url" :alt="foto.titulo">
       </li>
     </ul>
@@ -15,17 +15,14 @@ export default {
   data () {
     return {
       titulo: 'Alura pic',
-      fotos: [
-        {
-          url: 'https://images.unsplash.com/photo-1582133724133-3c8661ad6832?ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80',
-          titulo: 'foto 1'
-        },
-        {
-          url: 'https://images.unsplash.com/photo-1582156658814-74ec690e27a7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=332&q=80',
-          titulo: 'foto 1'
-        }        
-      ]
+      fotos: []
     }
+  },
+
+  created () {
+    this.$http.get('http://localhost:3000/v1/fotos')
+      .then(res => res.json())
+      .then(fotosApi => this.fotos = fotosApi, err => console.log(err));
   }
 }
 </script>
