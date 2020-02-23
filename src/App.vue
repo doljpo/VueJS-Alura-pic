@@ -80,4 +80,8 @@ export default {
   display: block;
   width: 100%;
 }
+
+.imagem-responsiva {
+  width: 100%;
+}
 </style>
