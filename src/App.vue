@@ -5,7 +5,7 @@
       class="filtro"
       type="search"
       placeholder="filtre por parte do título"
-      v-on:input="filtro = $event.target.value"
+      @input="filtro = $event.target.value"
     />
     <ul class="lista-fotos">
       <li class="lista-fotos-item" v-for="foto in fotosComFiltro">
@@ -37,7 +37,7 @@ export default {
   computed: {
     fotosComFiltro() {
       if (this.filtro) {
-        let exp = new RegExp(this.filtro.trim(), 'i');
+        let exp = new RegExp(this.filtro.trim(), "i");
         return this.fotos.filter(foto => exp.test(foto.titulo));
       } else {
         return this.fotos;
