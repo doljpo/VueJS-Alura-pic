@@ -1,11 +1,30 @@
 <template>
   <div class="corpo">
-    <router-view></router-view>
+    <alura-menu :rotas="routes"></alura-menu>
+    <transition name="pagina">
+     <router-view></router-view> 
+    </transition>
   </div>
 </template>
 
 <script>
-export default {};
+
+  import Menu from './components/shared/menu/Menu.vue'
+  import {routes} from './routes.js'
+
+  export default {
+
+    components: {
+      'alura-menu': Menu
+    },
+
+    data() {
+      return {
+        routes
+      }
+    }
+
+  };
 </script>
 
 <style>
@@ -13,5 +32,13 @@ export default {};
   font-family: Helvetica, sans-serif;
   widows: 96%;
   margin: 0 auto;
+}
+
+.pagina-enter, .pagina-leave-active {
+    opacity: 0;
+}
+
+.pagina-enter-active, .pagina-leave-active {
+    transition: .4s;
 }
 </style>
