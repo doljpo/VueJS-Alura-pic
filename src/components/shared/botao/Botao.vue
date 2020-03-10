@@ -10,16 +10,19 @@ export default {
       required: true,
       default: "button"
     },
+
     rotulo: {
       type: String,
       required: false,
       default: "foto"
     },
+
     confirmacao: {
       type: Boolean,
       required: false,
       default: true
     },
+
     estilo: {
       type: String,
       required: false,

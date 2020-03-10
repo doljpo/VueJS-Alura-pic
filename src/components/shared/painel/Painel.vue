@@ -11,7 +11,12 @@
 
 <script>
 export default {
-  props: ["titulo"],
+  props: {
+    titulo: {
+      type: String,
+      required: true
+    }
+  },
 
   data() {
     return {
@@ -47,11 +52,13 @@ export default {
   box-shadow: 5px 5px 5px;
 }
 
-.painel-fade-enter, .painel-fade-leave-active {
-    opacity: 0;
+.painel-fade-enter,
+.painel-fade-leave-active {
+  opacity: 0;
 }
 
-.painel-fade-enter-active, .painel-fade-leave-active {
-    transition: .4s;
+.painel-fade-enter-active,
+.painel-fade-leave-active {
+  transition: 0.4s;
 }
 </style>
