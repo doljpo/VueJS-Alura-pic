@@ -8,9 +8,16 @@
       @input="filtro = $event.target.value"
     />
     <ul class="lista-fotos">
-      <li class="lista-fotos-item" v-for="foto in fotosComFiltro">
+      <li class="lista-fotos-item" v-for="foto in fotosComFiltro" :key="foto._id">
         <meu-painel :titulo="foto.titulo">
           <imagem-responsiva :url="foto.url" :titulo="foto.titulo" />
+          <meu-botao
+            rotulo="remover"
+            tipo="button"
+            @acaoRemover="remover(foto)"
+            :confirmacao="true"
+            estilo="perigo"
+          />
         </meu-painel>
       </li>
     </ul>
@@ -20,11 +27,13 @@
 <script>
 import Painel from "../shared/painel/Painel.vue";
 import ImagemReponsiva from "../shared/imagem-responsiva/ImagemResponsiva.vue";
+import Botao from "../shared/botao/Botao.vue";
 
 export default {
   components: {
     "meu-painel": Painel,
-    "imagem-responsiva": ImagemReponsiva
+    "imagem-responsiva": ImagemReponsiva,
+    "meu-botao": Botao
   },
 
   name: "app",
@@ -55,12 +64,17 @@ export default {
         fotosApi => (this.fotos = fotosApi),
         err => console.log(err)
       );
+  },
+
+  methods: {
+    remover(foto) {
+      alert('Foto: "' + foto.titulo + '" removida com sucesso.');
+    }
   }
 };
 </script>
 
 <style scoped>
-
 .centralizado {
   text-align: center;
 }
