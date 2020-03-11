@@ -7,12 +7,12 @@ export default {
   props: {
     url: {
       type: String,
-      required: true
+      required: false
     },
 
     titulo: {
       type: String,
-      required: true
+      required: false
     }
   }
 };
