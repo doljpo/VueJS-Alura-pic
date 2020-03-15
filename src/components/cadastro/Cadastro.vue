@@ -47,9 +47,13 @@ export default {
     };
   },
 
+  created() {
+    this.resource = this.$resource("v1/fotos{/id}");
+  },
+
   methods: {
     grava() {
-      this.$http.post("http://localhost:3000/v1/fotos", this.foto).then(
+      this.resource.save(this.foto).then(
         () => (this.foto = new Foto()),
         err => console.log(err)
       );
