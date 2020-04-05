@@ -71,7 +71,7 @@ export default {
     this.service = new FotoService(this.$resource);
     this.service.listar().then(
       fotosApi => (this.fotos = fotosApi),
-      err => console.log(err)
+      err => this.mensagem = err.message
     );
   },
 
@@ -83,10 +83,7 @@ export default {
           this.fotos.splice(indice, 1);
           this.mensagem = "Foto removida com sucesso!";
         },
-        err => {
-          console.log(err);
-          this.mensagem = err;
-        }
+        err => this.mensagem = err.message
       );
     }
   }
