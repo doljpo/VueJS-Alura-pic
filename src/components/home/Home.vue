@@ -95,10 +95,6 @@ export default {
   text-align: center;
 }
 
-.lista-fotos {
-  list-style: none;
-}
-
 .lista-fotos .lista-fotos-item {
   display: inline-block;
 }

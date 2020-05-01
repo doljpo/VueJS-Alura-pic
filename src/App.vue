@@ -1,5 +1,5 @@
 <template>
-  <div class="corpo">
+  <div class="container corpo">
     <alura-menu :rotas="routes"></alura-menu>
     <transition name="pagina">
       <router-view></router-view>

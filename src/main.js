@@ -6,8 +6,9 @@ import { routes } from './routes';
 import './directives/Transform';
 import VeeValidate from 'vee-validate';
 import msg from './pt_BR';
-
 import 'bootstrap/dist/css/bootstrap.css' 
+import 'bootstrap/dist/js/bootstrap.js' 
+import './assets/css/style.css';
 
 
 Vue.use(VueRouter);
